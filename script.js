@@ -7,7 +7,6 @@ fetch('https://restcountries.com/v3.1/region/asia').then((res) => res.json()
         countryCards(country);
         
     })));
-console.log(countryData)
 
 
 document.querySelector('#filter').addEventListener('change', (event) => {
@@ -25,8 +24,6 @@ document.querySelector('#filter').addEventListener('change', (event) => {
 
     fetch(url).then((res) => res.json()
         .then(data => data.forEach((country) => {
-
-            console.log(country)
             countryCards(country)
         })));
 })
@@ -68,9 +65,8 @@ searchBar.addEventListener('keydown', (e) => {
     container.innerHTML = '';
 
     let elements = e.target.value;
-    console.log(elements);
     countryData.filter((data)=> data.name.common.toLowerCase().includes(elements.toLowerCase())).forEach((country) => {
-        console.log(country)
+       
          countryCards(country);
     })
        

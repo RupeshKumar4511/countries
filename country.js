@@ -14,8 +14,7 @@ fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`).then((res)
                 <p><b>Languages: </b>${Object.values(country[0].languages)}</p>
                 <p><b>Top Level Domain : </b>${country[0].tld[0]}</p>`;
 
-                console.log(country[0])
-
+                
     if (country[0].borders) {
          const borderHeader = document.createElement('p');
          borderHeader.innerHTML = `<b>Border Countries: </b>`;
