@@ -53,10 +53,6 @@ function countryCards(country) {
 
 
 
-
-
-
-
 const searchBar = document.querySelector("#search");
 
 function findElementsByText(text) {
