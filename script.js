@@ -1,18 +1,19 @@
 const container = document.querySelector('.container');
+let countryData =[];
 container.innerHTML = '';
-fetch('https://restcountries.com/v3.1/all').then((res) => res.json()
+fetch('https://restcountries.com/v3.1/region/asia').then((res) => res.json()
     .then(data => data.forEach((country) => {
+        countryData.push(country);
         countryCards(country);
         
     })));
-
 
 
 document.querySelector('#filter').addEventListener('change', (event) => {
 
     let url = '';
     if (event.target.value == 'all') {
-        url = `https://restcountries.com/v3.1/all`;
+        url = `hhttps://restcountries.com/v3.1/region/asia`;
     } else {
         url = `https://restcountries.com/v3.1/region/${event.target.value}`
     }
@@ -23,8 +24,6 @@ document.querySelector('#filter').addEventListener('change', (event) => {
 
     fetch(url).then((res) => res.json()
         .then(data => data.forEach((country) => {
-
-            console.log(country)
             countryCards(country)
         })));
 })
@@ -39,7 +38,7 @@ function countryCards(country) {
     cardContainer.appendChild(cardImage);
     cardContainer.appendChild(cardBody);
     cardImage.innerHTML = `<img  class="image"  src=${country.flags.png} alt=""  />`;
-    cardBody.innerHTML = `<h2>${country.name.official}</h2>
+    cardBody.innerHTML = `<h2>${country.name.common}</h2>
                 <p><b>Population: </b>${country.population.toLocaleString('en-IN')}</p>
                 <p><b>Region: </b>${country.region}</p>
                 <p><b>Capital: </b>${country.capital}</p>`;
@@ -55,22 +54,18 @@ function countryCards(country) {
 
 const searchBar = document.querySelector("#search");
 
-function findElementsByText(text) {
-    let elements = document.querySelectorAll('*');
-    return Array.from(elements).filter(el => el.textContent.includes(text));
-}
 
-searchBar.addEventListener('change', (e) => {
-    e.preventDefault();
+searchBar.addEventListener('keydown', (e) => {
 
-    let elements = findElementsByText(searchBar.value);
-    if (elements.length > 0) {
-        elements.forEach(element => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    } else {
-        alert('Word not found!');
-    }
+    const container = document.querySelector('.container');
+    container.innerHTML = '';
+
+    let elements = e.target.value;
+    countryData.filter((data)=> data.name.common.toLowerCase().includes(elements.toLowerCase())).forEach((country) => {
+       
+         countryCards(country);
+    })
+       
 
 
 
