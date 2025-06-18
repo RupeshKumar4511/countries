@@ -4,6 +4,7 @@ container.innerHTML = '';
 fetch('https://restcountries.com/v3.1/region/asia').then((res) => res.json()
     .then(data => data.forEach((country) => {
         countryData.push(country);
+        console.log(country);
         countryCards(country);
         
     })));
