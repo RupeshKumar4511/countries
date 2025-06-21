@@ -9,8 +9,9 @@
     position:sticky;
     top:0px;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color:#F2F2F2;
-    color:black;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .header-content{
@@ -28,6 +29,8 @@
     align-items:center;
     justify-content:space-evenly;
     margin-top:20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .search-box{
@@ -36,6 +39,8 @@
     padding:15px;
     border-radius:10px;
     box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 #search{
@@ -43,6 +48,8 @@
     font-size:18px;
     border:none;
     outline:none;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 
@@ -52,6 +59,8 @@
     font-size:18px;
     border:none;
     outline:none;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 
@@ -95,10 +104,10 @@
 
 
 .card-body{
-    color:black;
+    background-color: var(--background-color);
+    color: var(--text-color);
     max-width:340px;
     min-height:145px;
-    background-color:white;
     padding:10px;
     line-height:1.5;
 }
@@ -113,13 +122,7 @@ a{
 }
 
 
-.light{
-    background-color:white;
-}
-.dark{
-    background-color:black;
-    color:white;
-}
+
 
 @media only screen and (max-width:520px){
     .header-content{
@@ -148,4 +151,22 @@ a{
         margin-top:15px;
         margin-left:10px;
     }
+}
+
+
+body {
+    --background-color: white;
+    --text-color: black;
+    --elements-color: white;
+    margin: 0;
+    font-family: Nunito, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x:hidden;
+}
+
+body.dark {
+    --background-color: hsl(207, 26%, 17%); 
+    --text-color: white;
+    --elements-color: hsl(209, 23%, 22%);
 }

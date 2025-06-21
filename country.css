@@ -12,7 +12,8 @@
 
 .btn a{
     text-decoration:none;
-    color:inherit;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .country-container{
@@ -44,6 +45,26 @@
     min-height:300px;
     padding:20px;
     line-height:1.5;
-    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2)
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
+
+
+body {
+    --background-color: white;
+    --text-color: black;
+    --elements-color: white;
+    margin: 0;
+    font-family: Nunito, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x:hidden;
+}
+
+body.dark {
+    --background-color: hsl(207, 26%, 17%); 
+    --text-color: white;
+    --elements-color: hsl(209, 23%, 22%);
+}
